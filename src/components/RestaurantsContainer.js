@@ -9,6 +9,7 @@ class RestaurantsContainer extends Component {
     return (
     <div className="container">
       <Form
+      restaurants={this.props.restaurants}
       fetchRestaurants={this.props.fetchRestaurants}
       filterByCuisine={this.props.filterByCuisine}
       filteredRestaurants={filteredRestaurants}

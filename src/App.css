@@ -82,7 +82,7 @@ label:hover {
 }
 
 .input-button {
-  /* display: none; */
+  display: none;
 }
 
 #submitButton {
@@ -118,8 +118,23 @@ label:hover {
   width: 30%;
 }
 
+.randomChoice {
+  margin: 0 2rem;
+  width: 100%;
+}
+
+.randomChoice__details {
+  margin: 1rem 0;
+}
+
 .restaurant__details {
   margin: 1rem 0;
+}
+
+.randomChoice__details--name {
+  font-size: 3rem;
+  display: inline-block;
+  margin-right: 1rem;
 }
 
 .restaurant__details--name {
@@ -140,10 +155,16 @@ label:hover {
   width: 100%;
 }
 
-.restaurant__image:hover {
-  opacity: 1;
-
+.randomChoice__image--large {
+  opacity: .5;
+  border-radius: .4rem;
 }
+
+.restaurant__image:hover, .randomChoice__image--large {
+  opacity: 1;
+}
+
+
 /* Tablet landscape media query break point */
 
 @media only screen and (max-device-width: 1200px) {
@@ -250,6 +271,10 @@ label:hover {
   .restaurant__image {
     width: 36rem;
   }
+
+  .restaurant__image--large {
+    width: 50rem;
+  }
 }
 
 /* Mobile media query break point */
@@ -321,6 +346,10 @@ label:hover {
 
   .restaurant__image {
     width: 27rem;
+  }
+
+  .restaurant__image--large {
+    width: 34rem;
   }
 }
 

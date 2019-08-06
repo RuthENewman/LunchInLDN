@@ -6,13 +6,15 @@ class RandomChoice extends Component {
   }
 
   render() {
-    const { restaurant } = this.props.randomChoice;
+    const { randomChoice } = this.props;
     return (
-      <div className="restaurant">
-          <div className="restaurant__details">
-            <h2 className="restaurant__details--name">{restaurant.name}</h2>
+      <div className="randomChoice">
+          <div className="randomChoice__details">
+            <h2 className="randomChoice__details--name">{randomChoice.name}</h2>
           </div>
-          <img src={restaurant.image_url} alt={restaurant.name} className="restaurant__image"/>
+          <img src={randomChoice.image_url}
+          alt={randomChoice.name}
+          className="randomChoice__image--large"/>
       </div>
     )
   }

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Header from './components/Header';
-import RestaurantsContainer from './components/RestaurantsContainer';
 import './App.css';
 import Restaurants from './restaurants.js';
+import Main from './components/Main';
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +10,13 @@ class App extends Component {
     this.state = {
       restaurants: [],
       filteredRestaurants: [],
-      randomChoice: ""
+      randomChoice: {
+        "id": 2,
+        "name": "Kimchee",
+        "starRating": 4,
+        "cuisine": "Korean",
+        "image_url": "https://media.timeout.com/images/105155613/630/472/image.jpg"
+      }
     }
   }
 
@@ -31,21 +36,23 @@ class App extends Component {
     })
   }
 
-  makeRandomChoice = (event) => {
+  makeRandomChoice(event) {
     event.preventDefault();
     const [restaurants, filteredRestaurants] = this.state
     if (filteredRestaurants.length > 0) {
       const randomChoiceNum = Math.floor(Math.random() * filteredRestaurants.length);
-      this.setState({
+      this.setState(() => ({
         randomChoice: filteredRestaurants[randomChoiceNum]
       })
+    )
     } else {
       const randomChoiceNum = Math.floor(Math.random() * restaurants.length);
-       this.setState({
+       this.setState(() => ({
          randomChoice: restaurants[randomChoiceNum]
        })
+     )
     }
-    this.props.history.push(`/randomChoice/${this.state.randomChoice}`);
+    this.props.history.push(`/randomChoice/${this.state.randomChoice.id}`);
   }
 
   filterByCuisine = (cuisine) => {
@@ -59,8 +66,7 @@ class App extends Component {
     let {restaurants, filteredRestaurants} = this.state;
     return (
     <div className="App">
-      <Header />
-      <RestaurantsContainer
+      <Main
       restaurants={restaurants}
       filteredRestaurants={filteredRestaurants}
       filterByCuisine={this.filterByCuisine}

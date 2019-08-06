@@ -8,7 +8,7 @@ class Results extends Component {
     return (
       <div className="results">
         {
-          filteredRestaurants.length > 0 ? filteredRestaurants.map((restaurant) =>
+          (filteredRestaurants.length > 0) ? filteredRestaurants.map((restaurant) =>
           <Restaurant
           restaurant={restaurant}
           key={restaurant.id}
