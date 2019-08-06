@@ -9,7 +9,7 @@ class Form extends Component {
     return (
       <form
       className="cuisines-form"
-      // onSubmit={(event) => this.props.randomChoice(event)}
+      onSubmit={this.props.makeRandomChoice}
       >
         <div className="cuisines-form__buttons">
           <div className="cuisines-form__buttons--italian">
@@ -70,6 +70,11 @@ class Form extends Component {
             value="mexican"
             onChange={() => this.props.filterByCuisine("Mexican")}
             ></input>
+          </div>
+          <div className="cuisines-form__buttons--reset">
+          <label className="reset-label"
+          onClick={() => this.props.resetFilteredRestaurants()}
+          htmlFor="reset">Reset</label>
           </div>
           <input
           id="submitButton"

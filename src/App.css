@@ -77,6 +77,10 @@ label {
   color: #808080;
 }
 
+label:hover {
+  cursor: pointer;
+}
+
 .input-button {
   /* display: none; */
 }

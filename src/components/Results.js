@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import Restaurant from './Restaurant';
 
 class Results extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidUpdate() {
-
-  }
 
   render() {
     let {restaurants, filteredRestaurants} = this.props;

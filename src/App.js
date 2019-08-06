@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Header from './components/Header';
-import Form from './components/Form';
-import Results from './components/Results';
+import RestaurantsContainer from './components/RestaurantsContainer';
 import './App.css';
 import Restaurants from './restaurants.js';
 
@@ -12,7 +11,12 @@ class App extends Component {
     this.state = {
       restaurants: [],
       filteredRestaurants: [],
+      randomChoice: ""
     }
+  }
+
+  componentDidMount() {
+    this.fetchRestaurants()
   }
 
   fetchRestaurants() {
@@ -27,6 +31,23 @@ class App extends Component {
     })
   }
 
+  makeRandomChoice = (event) => {
+    event.preventDefault();
+    const [restaurants, filteredRestaurants] = this.state
+    if (filteredRestaurants.length > 0) {
+      const randomChoiceNum = Math.floor(Math.random() * filteredRestaurants.length);
+      this.setState({
+        randomChoice: filteredRestaurants[randomChoiceNum]
+      })
+    } else {
+      const randomChoiceNum = Math.floor(Math.random() * restaurants.length);
+       this.setState({
+         randomChoice: restaurants[randomChoiceNum]
+       })
+    }
+    this.props.history.push(`/randomChoice/${this.state.randomChoice}`);
+  }
+
   filterByCuisine = (cuisine) => {
      this.setState({
          filteredRestaurants: this.state.restaurants.filter((restaurant) =>
@@ -34,24 +55,18 @@ class App extends Component {
        })
   }
 
-  componentDidMount() {
-    this.fetchRestaurants()
-  }
-
   render() {
     let {restaurants, filteredRestaurants} = this.state;
     return (
     <div className="App">
       <Header />
-      <Form
-      fetchRestaurants={this.fetchRestaurants}
-      filterByCuisine={this.filterByCuisine}
-      resetFilteredRestaurants={this.resetFilteredRestaurants}
-      />
-      <Results
+      <RestaurantsContainer
       restaurants={restaurants}
       filteredRestaurants={filteredRestaurants}
-      resetFilteredHotels={this.resetFilteredRestaurants}
+      filterByCuisine={this.filterByCuisine}
+      resetFilteredRestaurants={this.resetFilteredRestaurants}
+      makeRandomChoice={this.makeRandomChoice}
+      randomChoice={this.state.randomChoice}
       />
     </div>
   );
