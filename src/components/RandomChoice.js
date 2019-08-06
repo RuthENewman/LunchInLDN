@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 
 class RandomChoice extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     const { randomChoice } = this.props;
@@ -15,6 +12,7 @@ class RandomChoice extends Component {
           <img src={randomChoice.image_url}
           alt={randomChoice.name}
           className="randomChoice__image--large"/>
+          <h3 className="randomChoice__details--cuisine">{randomChoice.cuisine}</h3>
       </div>
     )
   }

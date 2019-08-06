@@ -30,7 +30,7 @@ class App extends Component {
       })
   }
 
-  resetFilteredRestaurants() {
+  resetFilteredRestaurants = () => {
     this.setState({
       filteredRestaurants: []
     })
@@ -38,7 +38,7 @@ class App extends Component {
 
   makeRandomChoice(event) {
     event.preventDefault();
-    const [restaurants, filteredRestaurants] = this.state
+    const {restaurants, filteredRestaurants} = this.state
     if (filteredRestaurants.length > 0) {
       const randomChoiceNum = Math.floor(Math.random() * filteredRestaurants.length);
       this.setState(() => ({

@@ -11,7 +11,7 @@ class Form extends Component {
 
   makeRandomChoiceForm(event) {
     event.preventDefault();
-    const [restaurants, filteredRestaurants] = this.props
+    const {restaurants, filteredRestaurants} = this.props
     if (filteredRestaurants.length > 0) {
       const randomChoiceNum = Math.floor(Math.random() * filteredRestaurants.length);
       this.setState(() => ({
@@ -25,7 +25,7 @@ class Form extends Component {
        })
      )
     }
-    this.props.history.push(`/randomChoice/${this.state.randomChoice.id}`);
+    // this.props.history.push(`/randomchoice/${this.state.randomChoice.id}`);
   }
 
   render() {
