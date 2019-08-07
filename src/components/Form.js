@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Form extends Component {
   constructor(props) {
     super(props)
-
+    
     this.state = {
       randomChoice: this.props.randomChoice
     }
@@ -98,7 +98,7 @@ class Form extends Component {
           <div className="cuisines-form__buttons--reset">
           <label className="reset-label"
           onClick={() => this.props.resetFilteredRestaurants()}
-          htmlFor="reset">Reset</label>
+          htmlFor="reset">ALL</label>
           </div>
           <input
           id="submitButton"
