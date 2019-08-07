@@ -37,16 +37,17 @@ class App extends Component {
   }
 
   render() {
-    let {restaurants, filteredRestaurants} = this.state;
+    const {restaurants, filteredRestaurants} = this.state;
+    const { history } = this.props;
+    const { filterByCuisine, resetFilteredRestaurants } = this;
     return (
     <div className="App">
       <Main
+      history={history}
       restaurants={restaurants}
       filteredRestaurants={filteredRestaurants}
-      filterByCuisine={this.filterByCuisine}
-      resetFilteredRestaurants={this.resetFilteredRestaurants}
-      makeRandomChoice={this.makeRandomChoice}
-      randomChoice={this.state.randomChoice}
+      filterByCuisine={filterByCuisine}
+      resetFilteredRestaurants={resetFilteredRestaurants}
       />
     </div>
   );

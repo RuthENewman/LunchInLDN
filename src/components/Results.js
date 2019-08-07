@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Restaurant from './Restaurant';
+import RandomChoice from './RandomChoice';
 
 class Results extends Component {
 
@@ -8,17 +9,17 @@ class Results extends Component {
     return (
       <div className="results">
         {
-          (filteredRestaurants.length > 0) ? filteredRestaurants.map((restaurant) =>
+          (!this.props.randomChoice && filteredRestaurants.length > 0) ? filteredRestaurants.map((restaurant) =>
           <Restaurant
           restaurant={restaurant}
           key={restaurant.id}
           />
-        ) : restaurants.map((restaurant) =>
+        ) : (!this.props.randomChoice && filteredRestaurants.length === 0) ? restaurants.map((restaurant) =>
         <Restaurant
           restaurant={restaurant}
           key={restaurant.name}
           />
-        )
+        ) : <RandomChoice randomChoice={this.props.randomChoice}/>
         }
       </div>
     )

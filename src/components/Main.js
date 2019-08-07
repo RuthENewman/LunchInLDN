@@ -14,8 +14,9 @@ const Main = (props) => (
     filteredRestaurants={props.filteredRestaurants}
     filterByCuisine={props.filterByCuisine}
     resetFilteredRestaurants={props.resetFilteredRestaurants}
-    makeRandomChoice={props.makeRandomChoice}
+    makeRandomChoiceForm={props.makeRandomChoiceForm}
     randomChoice={props.randomChoice}
+    history={props.history}
     {...routerProps}
     />} />
     <Route path="/randomChoice/:id" component={(routerProps) => <RandomChoice

@@ -1,39 +1,12 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-  constructor(props) {
-    super(props)
-    
-    this.state = {
-      randomChoice: this.props.randomChoice
-    }
-  }
-
-  makeRandomChoiceForm(event) {
-    event.preventDefault();
-    const {restaurants, filteredRestaurants} = this.props
-    if (filteredRestaurants.length > 0) {
-      const randomChoiceNum = Math.floor(Math.random() * filteredRestaurants.length);
-      this.setState(() => ({
-        randomChoice: filteredRestaurants[randomChoiceNum]
-      })
-    )
-    } else {
-      const randomChoiceNum = Math.floor(Math.random() * restaurants.length);
-       this.setState(() => ({
-         randomChoice: restaurants[randomChoiceNum]
-       })
-     )
-    }
-    // this.props.history.push(`/randomchoice/${this.state.randomChoice.id}`);
-  }
 
   render() {
     return (
       <form
       className="cuisines-form"
-      // onSubmit={(event) => this.props.makeRandomChoice(event)}
-      onSubmit={(event) => this.makeRandomChoiceForm(event)}
+      onSubmit={(event) => this.props.makeRandomChoiceForm(event)}
       >
         <div className="cuisines-form__buttons">
           <div className="cuisines-form__buttons--italian">
