@@ -130,10 +130,12 @@ label:hover {
 .randomChoice {
   margin: 0 2rem;
   width: 100%;
+  text-align: center;
 }
 
 .randomChoice__details {
-  margin: 1rem 0;
+  margin: 2rem 0;
+  text-align: center;
 }
 
 .restaurant__details {
@@ -143,7 +145,6 @@ label:hover {
 .randomChoice__details--name {
   font-size: 3rem;
   display: inline-block;
-  margin-right: 1rem;
 }
 
 .restaurant__details--name {
@@ -167,12 +168,19 @@ label:hover {
 .randomChoice__image--large {
   opacity: .5;
   border-radius: .4rem;
+  width: 92%;
+  display: inline-block;
 }
 
-.restaurant__image:hover, .randomChoice__image--large {
+.restaurant__image:hover, .randomChoice__image--large:hover {
   opacity: 1;
 }
 
+.randomChoice__details--cuisine {
+  font-size: 2rem;
+  display: inline-block;
+  margin: 0 1rem;
+}
 
 /* Tablet landscape media query break point */
 
